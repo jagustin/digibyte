@@ -42,7 +42,7 @@ QString LekCoinUnits::longName(int unit)
     {
     case LEK: return QString("LEK");
     case mLEK: return QString("mLEK");
-    case uLEK: return QString::fromUtf8("µLEK (digis)");
+    case uLEK: return QString::fromUtf8("µLEK (leks)");
     default: return QString("???");
     }
 }
