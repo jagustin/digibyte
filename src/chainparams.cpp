@@ -207,13 +207,13 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x70b463c4593ff8880eff5d1595a5f37443d4a7da6f530ea08aa32df03c420f48"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.emplace_back("seed1.lekcoin.io");
-        vSeeds.emplace_back("seed2.lekcoin.io");
-        vSeeds.emplace_back("seed3.lekcoin.io");
-        vSeeds.emplace_back("seed.lekcoin.io");
-        vSeeds.emplace_back("seed.lekcoinprojects.com");
-        vSeeds.emplace_back("digihash.co");
-        vSeeds.emplace_back("digiexplorer.info");
+        //vSeeds.emplace_back("seed1.lekcoin.io");
+        //vSeeds.emplace_back("seed2.lekcoin.io");
+        //vSeeds.emplace_back("seed3.lekcoin.io");
+        //vSeeds.emplace_back("seed.lekcoin.io");
+        //vSeeds.emplace_back("seed.lekcoinprojects.com");
+        //vSeeds.emplace_back("digihash.co");
+        //vSeeds.emplace_back("digiexplorer.info");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,56);
