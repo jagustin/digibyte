@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -176,7 +176,7 @@ arith_uint256 GetBlockProof(const CBlockIndex& block)
 }
 
 
-// DGB 6.14.1 GetBlock Proof
+// LEK 6.14.1 GetBlock Proof
 /** arith_uint256 GetBlockProof(const CBlockIndex& block)
 {
     CBlockHeader header = block.GetBlockHeader();

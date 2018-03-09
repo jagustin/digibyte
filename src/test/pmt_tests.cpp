@@ -1,4 +1,4 @@
-// Copyright (c) 2012-2017 The DigiByte Core developers
+// Copyright (c) 2012-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 #include <uint256.h>
 #include <arith_uint256.h>
 #include <version.h>
-#include <test/test_digibyte.h>
+#include <test/test_lekcoin.h>
 
 #include <vector>
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 
 #include <qt/addressbookpage.h>
 #include <qt/askpassphrasedialog.h>
-#include <qt/digibytegui.h>
+#include <qt/lekcoingui.h>
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
@@ -85,7 +85,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setDigiByteGUI(DigiByteGUI *gui)
+void WalletView::setLekCoinGUI(LekCoinGUI *gui)
 {
     if (gui)
     {

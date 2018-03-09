@@ -1,4 +1,4 @@
-// Copyright (c) 2017 The DigiByte Core developers
+// Copyright (c) 2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include <consensus/validation.h>
 #include <primitives/transaction.h>
 #include <script/script.h>
-#include <test/test_digibyte.h>
+#include <test/test_lekcoin.h>
 
 #include <boost/test/unit_test.hpp>
 

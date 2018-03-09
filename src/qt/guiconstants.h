@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2016 The DigiByte Core developers
+// Copyright (c) 2011-2016 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@ static const int MODEL_UPDATE_DELAY = 250;
 /* AskPassphraseDialog -- Maximum passphrase length */
 static const int MAX_PASSPHRASE_SIZE = 1024;
 
-/* DigiByteGUI -- Size of icons in status bar */
+/* LekCoinGUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -48,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "DigiByte"
-#define QAPP_ORG_DOMAIN "digibyte.io"
-#define QAPP_APP_NAME_DEFAULT "DigiByte-Qt"
-#define QAPP_APP_NAME_TESTNET "DigiByte-Qt-testnet"
+#define QAPP_ORG_NAME "LekCoin"
+#define QAPP_ORG_DOMAIN "lekcoin.io"
+#define QAPP_APP_NAME_DEFAULT "LekCoin-Qt"
+#define QAPP_APP_NAME_TESTNET "LekCoin-Qt-testnet"
 
 #endif // DIGIBYTE_QT_GUICONSTANTS_H

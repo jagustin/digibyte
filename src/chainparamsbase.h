@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The DigiByte Core developers
+// Copyright (c) 2014-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,8 +10,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between digibyte-cli and digibyted)
- * of a given instance of the DigiByte system.
+ * CBaseChainParams defines the base parameters (shared between lekcoin-cli and lekcoind)
+ * of a given instance of the LekCoin system.
  */
 class CBaseChainParams
 {

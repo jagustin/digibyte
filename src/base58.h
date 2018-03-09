@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -97,7 +97,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CDigiByteSecret : public CBase58Data
+class CLekCoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -106,11 +106,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CDigiByteSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CDigiByteSecret() {}
+    CLekCoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CLekCoinSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CDigiByteExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CLekCoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -128,19 +128,19 @@ public:
         return ret;
     }
 
-    CDigiByteExtKeyBase(const K &key) {
+    CLekCoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CDigiByteExtKeyBase(const std::string& strBase58c) {
+    CLekCoinExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), Params().Base58Prefix(Type).size());
     }
 
-    CDigiByteExtKeyBase() {}
+    CLekCoinExtKeyBase() {}
 };
 
-typedef CDigiByteExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CDigiByteExtKey;
-typedef CDigiByteExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CDigiByteExtPubKey;
+typedef CLekCoinExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CLekCoinExtKey;
+typedef CLekCoinExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CLekCoinExtPubKey;
 
 std::string EncodeDestination(const CTxDestination& dest);
 CTxDestination DecodeDestination(const std::string& str);

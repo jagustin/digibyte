@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The DigiByte Core developers
+# Copyright (c) 2014-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the importmulti RPC."""
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import *
 
-class ImportMultiTest (DigiByteTestFramework):
+class ImportMultiTest (LekCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.extra_args = [["-addresstype=legacy"], ["-addresstype=legacy"]]
@@ -37,7 +37,7 @@ class ImportMultiTest (DigiByteTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
-        # DigiByte Address
+        # LekCoin Address
         self.log.info("Should import an address")
         address = self.nodes[0].validateaddress(self.nodes[0].getnewaddress())
         result = self.nodes[1].importmulti([{

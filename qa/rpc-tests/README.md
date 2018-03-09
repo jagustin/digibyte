@@ -2,7 +2,7 @@ Regression tests
 ================
 
 ### [test_framework/authproxy.py](test_framework/authproxy.py)
-Taken from the [python-digibyterpc repository](https://github.com/jgarzik/python-digibyterpc).
+Taken from the [python-lekcoinrpc repository](https://github.com/jgarzik/python-lekcoinrpc).
 
 ### [test_framework/test_framework.py](test_framework/test_framework.py)
 Base class for new regression tests.
@@ -11,19 +11,19 @@ Base class for new regression tests.
 Generally useful functions.
 
 ### [test_framework/mininode.py](test_framework/mininode.py)
-Basic code to support p2p connectivity to a digibyted.
+Basic code to support p2p connectivity to a lekcoind.
 
 ### [test_framework/comptool.py](test_framework/comptool.py)
 Framework for comparison-tool style, p2p tests.
 
 ### [test_framework/script.py](test_framework/script.py)
-Utilities for manipulating transaction scripts (originally from python-digibytelib)
+Utilities for manipulating transaction scripts (originally from python-lekcoinlib)
 
 ### [test_framework/blockstore.py](test_framework/blockstore.py)
 Implements disk-backed block and tx storage.
 
 ### [test_framework/key.py](test_framework/key.py)
-Wrapper around OpenSSL EC_Key (originally from python-digibytelib)
+Wrapper around OpenSSL EC_Key (originally from python-lekcoinlib)
 
 ### [test_framework/bignum.py](test_framework/bignum.py)
 Helpers for script.py
@@ -41,10 +41,10 @@ over the network (```CBlock```, ```CTransaction```, etc, along with the network-
 wrappers for them, ```msg_block```, ```msg_tx```, etc).
 
 * P2P tests have two threads.  One thread handles all network communication
-with the digibyted(s) being tested (using python's asyncore package); the other
+with the lekcoind(s) being tested (using python's asyncore package); the other
 implements the test logic.
 
-* ```NodeConn``` is the class used to connect to a digibyted.  If you implement
+* ```NodeConn``` is the class used to connect to a lekcoind.  If you implement
 a callback class that derives from ```NodeConnCB``` and pass that to the
 ```NodeConn``` object, your code will receive the appropriate callbacks when
 events of interest arrive.
@@ -64,13 +64,13 @@ is tested.  Examples: ```p2p-accept-block.py```, ```maxblocksinflight.py```.
 ## Comptool
 
 * Testing framework for writing tests that compare the block/tx acceptance
-behavior of a digibyted against 1 or more other digibyted instances, or against
+behavior of a lekcoind against 1 or more other lekcoind instances, or against
 known outcomes, or both.
 
 * Set the ```num_nodes``` variable (defined in ```ComparisonTestFramework```) to start up
 1 or more nodes.  If using 1 node, then ```--testbinary``` can be used as a command line
-option to change the digibyted binary used by the test.  If using 2 or more nodes,
-then ```--refbinary``` can be optionally used to change the digibyted that will be used
+option to change the lekcoind binary used by the test.  If using 2 or more nodes,
+then ```--refbinary``` can be optionally used to change the lekcoind that will be used
 on nodes 2 and up.
 
 * Implement a (generator) function called ```get_tests()``` which yields ```TestInstance```s.
@@ -79,13 +79,13 @@ Each ```TestInstance``` consists of:
     * ```object``` is a ```CBlock```, ```CTransaction```, or
     ```CBlockHeader```.  ```CBlock```'s and ```CTransaction```'s are tested for
     acceptance.  ```CBlockHeader```s can be used so that the test runner can deliver
-    complete headers-chains when requested from the digibyted, to allow writing
+    complete headers-chains when requested from the lekcoind, to allow writing
     tests where blocks can be delivered out of order but still processed by
-    headers-first digibyted's.
+    headers-first lekcoind's.
     * ```outcome``` is ```True```, ```False```, or ```None```.  If ```True```
     or ```False```, the tip is compared with the expected tip -- either the
     block passed in, or the hash specified as the optional 3rd entry.  If
-    ```None``` is specified, then the test will compare all the digibyted's
+    ```None``` is specified, then the test will compare all the lekcoind's
     being tested to see if they all agree on what the best tip is.
     * ```hash``` is the block hash of the tip to compare against. Optional to
     specify; if left out then the hash of the block passed in will be used as
@@ -99,7 +99,7 @@ Each ```TestInstance``` consists of:
     sequence and synced (this is slower when processing many blocks).
   - ```sync_every_transaction```: ```True/False```.  Analogous to
     ```sync_every_block```, except if the outcome on the last tx is "None",
-    then the contents of the entire mempool are compared across all digibyted
+    then the contents of the entire mempool are compared across all lekcoind
     connections.  If ```True``` or ```False```, then only the last tx's
     acceptance is tested against the given outcome.
 

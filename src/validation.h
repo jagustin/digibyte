@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 #define DIGIBYTE_VALIDATION_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/digibyte-config.h>
+#include <config/lekcoin-config.h>
 #endif
 
 #include <amount.h>
@@ -279,7 +279,7 @@ bool GetTransaction(const uint256& hash, CTransactionRef& tx, const Consensus::P
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState& state, const CChainParams& chainparams, std::shared_ptr<const CBlock> pblock = std::shared_ptr<const CBlock>());
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams);
-CAmount GetDGBSubsidy(int nHeight,  const Consensus::Params& consensusParams);
+CAmount GetLEKSubsidy(int nHeight,  const Consensus::Params& consensusParams);
 
 /** Guess verification progress (as a fraction between 0.0=genesis and 1.0=current tip). */
 double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex* pindex);

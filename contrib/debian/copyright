@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: DigiByte
+Upstream-Name: LekCoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#digibyte@freenode.net
-Source: https://github.com/digibyte/digibyte
+ irc://#lekcoin@freenode.net
+Source: https://github.com/lekcoin/lekcoin
 
 Files: *
-Copyright: 2009-2018, DigiByte Core Developers
+Copyright: 2009-2018, LekCoin Core Developers
 License: Expat
-Comment: The DigiByte Core Developers encompasses the current developers listed on digibyte.org,
+Comment: The LekCoin Core Developers encompasses the current developers listed on lekcoin.org,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -86,12 +86,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/digibyte.*
-       share/pixmaps/digibyte*
-       src/qt/res/src/digibyte.svg
+       src/qt/res/icons/lekcoin.*
+       share/pixmaps/lekcoin*
+       src/qt/res/src/lekcoin.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://digibytetalk.org/?topic=1756.0
+Comment: Site: https://lekcointalk.org/?topic=1756.0
 
 
 License: Expat

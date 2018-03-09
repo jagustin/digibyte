@@ -1,8 +1,8 @@
-<!-- This issue tracker is only for technical issues related to DigiByte Core.
+<!-- This issue tracker is only for technical issues related to LekCoin Core.
 
-General digibyte questions and/or support requests are best directed to the DigiByte StackExchange at https://digibyte.stackexchange.com.
+General lekcoin questions and/or support requests are best directed to the LekCoin StackExchange at https://lekcoin.stackexchange.com.
 
-For reporting security issues, please read instructions at https://digibytecore.org/en/contact/.
+For reporting security issues, please read instructions at https://lekcoincore.org/en/contact/.
 
 If the node is "stuck" during sync or giving "block checksum mismatch" errors, please ensure your hardware is stable by running memtest and observe CPU temperature with a load-test tool such as linpack before creating an issue! -->
 
@@ -13,7 +13,7 @@ If the node is "stuck" during sync or giving "block checksum mismatch" errors, p
 
 <!--- How reliably can you reproduce the issue, what are the steps to do so? -->
 
-<!-- What version of DigiByte Core are you using, where did you get it (website, self-compiled, etc)? -->
+<!-- What version of LekCoin Core are you using, where did you get it (website, self-compiled, etc)? -->
 
 <!-- What type of machine are you observing the error on (OS/CPU and disk type)? -->
 

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=LekCoin Core
+Comment=Connect to the LekCoin P2P Network
+Comment[de]=Verbinde mit dem LekCoin peer-to-peer Netzwerk
+Comment[fr]=LekCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=LekCoin, eşten eşe kriptografik sanal para birimi
+Exec=lekcoin-qt %u
+Terminal=false
+Type=Application
+Icon=lekcoin128
+MimeType=x-scheme-handler/lekcoin;
+Categories=Office;Finance;
+StartupWMClass=LekCoin-qt

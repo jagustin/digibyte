@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include <arith_uint256.h>
 #include <string>
 #include <version.h>
-#include <test/test_digibyte.h>
+#include <test/test_lekcoin.h>
 
 BOOST_FIXTURE_TEST_SUITE(arith_uint256_tests, BasicTestingSetup)
 

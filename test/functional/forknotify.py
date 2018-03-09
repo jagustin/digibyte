@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The DigiByte Core developers
+# Copyright (c) 2014-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the -alertnotify option."""
 import os
 import time
 
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 
-class ForkNotifyTest(DigiByteTestFramework):
+class ForkNotifyTest(LekCoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 
@@ -30,7 +30,7 @@ class ForkNotifyTest(DigiByteTestFramework):
         self.nodes[1].generate(1)
         self.sync_all()
 
-        # Give digibyted 10 seconds to write the alert notification
+        # Give lekcoind 10 seconds to write the alert notification
         timeout = 10.0
         while timeout > 0:
             if os.path.exists(self.alert_filename) and os.path.getsize(self.alert_filename):

@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-# Copyright (c) 2016 The DigiByte Core developers
+# Copyright (c) 2016 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #
 # Helper script to create the cache
-# (see DigiByteTestFramework.setup_chain)
+# (see LekCoinTestFramework.setup_chain)
 #
 
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 
-class CreateCache(DigiByteTestFramework):
+class CreateCache(LekCoinTestFramework):
 
     def __init__(self):
         super().__init__()

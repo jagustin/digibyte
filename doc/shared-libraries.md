@@ -1,21 +1,21 @@
 Shared Libraries
 ================
 
-## digibyteconsensus
+## lekcoinconsensus
 
-The purpose of this library is to make the verification functionality that is critical to DigiByte's consensus available to other applications, e.g. to language bindings.
+The purpose of this library is to make the verification functionality that is critical to LekCoin's consensus available to other applications, e.g. to language bindings.
 
 ### API
 
-The interface is defined in the C header `digibyteconsensus.h` located in  `src/script/digibyteconsensus.h`.
+The interface is defined in the C header `lekcoinconsensus.h` located in  `src/script/lekcoinconsensus.h`.
 
 #### Version
 
-`digibyteconsensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
+`lekcoinconsensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
 
 #### Script Validation
 
-`digibyteconsensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
+`lekcoinconsensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
 
 ##### Parameters
 - `const unsigned char *scriptPubKey` - The previous output script that encumbers spending.
@@ -24,26 +24,26 @@ The interface is defined in the C header `digibyteconsensus.h` located in  `src/
 - `unsigned int txToLen` - The number of bytes for the `txTo`.
 - `unsigned int nIn` - The index of the input in `txTo` that spends the `scriptPubKey`.
 - `unsigned int flags` - The script validation flags *(see below)*.
-- `digibyteconsensus_error* err` - Will have the error/success code for the operation *(see below)*.
+- `lekcoinconsensus_error* err` - Will have the error/success code for the operation *(see below)*.
 
 ##### Script Flags
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_NONE`
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/digibyte/bips/blob/master/bip-0016.mediawiki)) subscripts
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/digibyte/bips/blob/master/bip-0066.mediawiki)) compliance
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/digibyte/bips/blob/master/bip-0147.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/digibyte/bips/blob/master/bip-0065.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/digibyte/bips/blob/master/bip-0112.mediawiki))
-- `digibyteconsensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/digibyte/bips/blob/master/bip-0141.mediawiki))
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_NONE`
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/lekcoin/bips/blob/master/bip-0016.mediawiki)) subscripts
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/lekcoin/bips/blob/master/bip-0066.mediawiki)) compliance
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/lekcoin/bips/blob/master/bip-0147.mediawiki))
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/lekcoin/bips/blob/master/bip-0065.mediawiki))
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/lekcoin/bips/blob/master/bip-0112.mediawiki))
+- `lekcoinconsensus_SCRIPT_FLAGS_VERIFY_WITNESS` - Enable WITNESS ([BIP141](https://github.com/lekcoin/bips/blob/master/bip-0141.mediawiki))
 
 ##### Errors
-- `digibyteconsensus_ERR_OK` - No errors with input parameters *(see the return value of `digibyteconsensus_verify_script` for the verification status)*
-- `digibyteconsensus_ERR_TX_INDEX` - An invalid index for `txTo`
-- `digibyteconsensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
-- `digibyteconsensus_ERR_DESERIALIZE` - An error deserializing `txTo`
-- `digibyteconsensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
+- `lekcoinconsensus_ERR_OK` - No errors with input parameters *(see the return value of `lekcoinconsensus_verify_script` for the verification status)*
+- `lekcoinconsensus_ERR_TX_INDEX` - An invalid index for `txTo`
+- `lekcoinconsensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
+- `lekcoinconsensus_ERR_DESERIALIZE` - An error deserializing `txTo`
+- `lekcoinconsensus_ERR_AMOUNT_REQUIRED` - Input amount is required if WITNESS is used
 
 ### Example Implementations
-- [NDigiByte](https://github.com/NicolasDorier/NDigiByte/blob/master/NDigiByte/Script.cs#L814) (.NET Bindings)
-- [node-libdigibyteconsensus](https://github.com/bitpay/node-libdigibyteconsensus) (Node.js Bindings)
-- [java-libdigibyteconsensus](https://github.com/dexX7/java-libdigibyteconsensus) (Java Bindings)
-- [digibyteconsensus-php](https://github.com/Bit-Wasp/digibyteconsensus-php) (PHP Bindings)
+- [NLekCoin](https://github.com/NicolasDorier/NLekCoin/blob/master/NLekCoin/Script.cs#L814) (.NET Bindings)
+- [node-liblekcoinconsensus](https://github.com/bitpay/node-liblekcoinconsensus) (Node.js Bindings)
+- [java-liblekcoinconsensus](https://github.com/dexX7/java-liblekcoinconsensus) (Java Bindings)
+- [lekcoinconsensus-php](https://github.com/Bit-Wasp/lekcoinconsensus-php) (PHP Bindings)

@@ -3,9 +3,9 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/digibyte/digibyte/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/lekcoin/lekcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/digibyte/digibyte/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/lekcoin/lekcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -21,7 +21,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/digibyte/digibyte/pull/7415) for an example.
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/lekcoin/lekcoin/pull/7415) for an example.
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 * Update `src/chainparams.cpp` chainTxData with statistics about the transaction count and rate.
 * Update version of `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
@@ -33,12 +33,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/digibyte-core/gitian.sigs.git
-    git clone https://github.com/digibyte-core/digibyte-detached-sigs.git
+    git clone https://github.com/lekcoin-core/gitian.sigs.git
+    git clone https://github.com/lekcoin-core/lekcoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/digibyte/digibyte.git
+    git clone https://github.com/lekcoin/lekcoin.git
 
-### DigiByte maintainers/release engineers, suggestion for writing release notes
+### LekCoin maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -61,7 +61,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./digibyte
+    pushd ./lekcoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://digibytecore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs https://lekcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
     wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
     popd
 
@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../digibyte/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../lekcoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -103,50 +103,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url digibyte=/path/to/digibyte,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url lekcoin=/path/to/lekcoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign DigiByte Core for Linux, Windows, and OS X:
+### Build and sign LekCoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit digibyte=v${VERSION} ../digibyte/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../digibyte/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/digibyte-*.tar.gz build/out/src/digibyte-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit lekcoin=v${VERSION} ../lekcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../lekcoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/lekcoin-*.tar.gz build/out/src/lekcoin-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit digibyte=v${VERSION} ../digibyte/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../digibyte/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/digibyte-*-win-unsigned.tar.gz inputs/digibyte-win-unsigned.tar.gz
-    mv build/out/digibyte-*.zip build/out/digibyte-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit lekcoin=v${VERSION} ../lekcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../lekcoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/lekcoin-*-win-unsigned.tar.gz inputs/lekcoin-win-unsigned.tar.gz
+    mv build/out/lekcoin-*.zip build/out/lekcoin-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit digibyte=v${VERSION} ../digibyte/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../digibyte/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/digibyte-*-osx-unsigned.tar.gz inputs/digibyte-osx-unsigned.tar.gz
-    mv build/out/digibyte-*.tar.gz build/out/digibyte-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit lekcoin=v${VERSION} ../lekcoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../lekcoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/lekcoin-*-osx-unsigned.tar.gz inputs/lekcoin-osx-unsigned.tar.gz
+    mv build/out/lekcoin-*.tar.gz build/out/lekcoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`digibyte-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`digibyte-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`digibyte-${VERSION}-win[32|64]-setup-unsigned.exe`, `digibyte-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`digibyte-${VERSION}-osx-unsigned.dmg`, `digibyte-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`lekcoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`lekcoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`lekcoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `lekcoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`lekcoin-${VERSION}-osx-unsigned.dmg`, `lekcoin-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import digibyte/contrib/gitian-keys/*.pgp
+    gpg --import lekcoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../digibyte/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../digibyte/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../digibyte/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../lekcoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../lekcoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../lekcoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -167,22 +167,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer digibyte-osx-unsigned.tar.gz to osx for signing
-    tar xf digibyte-osx-unsigned.tar.gz
+    transfer lekcoin-osx-unsigned.tar.gz to osx for signing
+    tar xf lekcoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf digibyte-win-unsigned.tar.gz
+    tar xf lekcoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/digibyte-detached-sigs
+    cd ~/lekcoin-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,25 +195,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [digibyte-detached-sigs](https://github.com/digibyte-core/digibyte-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [lekcoin-detached-sigs](https://github.com/lekcoin-core/lekcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../digibyte/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/digibyte-osx-signed.dmg ../digibyte-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../lekcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../lekcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../lekcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/lekcoin-osx-signed.dmg ../lekcoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../digibyte/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/digibyte-*win64-setup.exe ../digibyte-${VERSION}-win64-setup.exe
-    mv build/out/digibyte-*win32-setup.exe ../digibyte-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../lekcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../lekcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../lekcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/lekcoin-*win64-setup.exe ../lekcoin-${VERSION}-win64-setup.exe
+    mv build/out/lekcoin-*win32-setup.exe ../lekcoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -235,23 +235,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-digibyte-${VERSION}-aarch64-linux-gnu.tar.gz
-digibyte-${VERSION}-arm-linux-gnueabihf.tar.gz
-digibyte-${VERSION}-i686-pc-linux-gnu.tar.gz
-digibyte-${VERSION}-x86_64-linux-gnu.tar.gz
-digibyte-${VERSION}-osx64.tar.gz
-digibyte-${VERSION}-osx.dmg
-digibyte-${VERSION}.tar.gz
-digibyte-${VERSION}-win32-setup.exe
-digibyte-${VERSION}-win32.zip
-digibyte-${VERSION}-win64-setup.exe
-digibyte-${VERSION}-win64.zip
+lekcoin-${VERSION}-aarch64-linux-gnu.tar.gz
+lekcoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+lekcoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+lekcoin-${VERSION}-x86_64-linux-gnu.tar.gz
+lekcoin-${VERSION}-osx64.tar.gz
+lekcoin-${VERSION}-osx.dmg
+lekcoin-${VERSION}.tar.gz
+lekcoin-${VERSION}-win32-setup.exe
+lekcoin-${VERSION}-win32.zip
+lekcoin-${VERSION}-win64-setup.exe
+lekcoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the digibyte.org server, nor put them in the torrent*.
+space *do not upload these to the lekcoin.org server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -261,49 +261,49 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the digibyte.org server
-  into `/var/www/bin/digibyte-core-${VERSION}`
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the lekcoin.org server
+  into `/var/www/bin/lekcoin-core-${VERSION}`
 
 - A `.torrent` will appear in the directory after a few minutes. Optionally help seed this torrent. To get the `magnet:` URI use:
 ```bash
 transmission-show -m <torrent file>
 ```
 Insert the magnet URI into the announcement sent to mailing lists. This permits
-people without access to `digibyte.org` to download the binary distribution.
+people without access to `lekcoin.org` to download the binary distribution.
 Also put it into the `optional_magnetlink:` slot in the YAML file for
-digibyte.org (see below for digibyte.org update instructions).
+lekcoin.org (see below for lekcoin.org update instructions).
 
-- Update digibyte.org version
+- Update lekcoin.org version
 
-  - First, check to see if the DigiByte.org maintainers have prepared a
-    release: https://github.com/digibyte-dot-org/digibyte.org/labels/Releases
+  - First, check to see if the LekCoin.org maintainers have prepared a
+    release: https://github.com/lekcoin-dot-org/lekcoin.org/labels/Releases
 
       - If they have, it will have previously failed their Travis CI
         checks because the final release files weren't uploaded.
         Trigger a Travis CI rebuild---if it passes, merge.
 
-  - If they have not prepared a release, follow the DigiByte.org release
-    instructions: https://github.com/digibyte-dot-org/digibyte.org#release-notes
+  - If they have not prepared a release, follow the LekCoin.org release
+    instructions: https://github.com/lekcoin-dot-org/lekcoin.org#release-notes
 
   - After the pull request is merged, the website will automatically show the newest version within 15 minutes, as well
     as update the OS download links. Ping @saivann/@harding (saivann/harding on Freenode) in case anything goes wrong
 
 - Announce the release:
 
-  - digibyte-dev and digibyte-core-dev mailing list
+  - lekcoin-dev and lekcoin-core-dev mailing list
 
-  - DigiByte Core announcements list https://digibytecore.org/en/list/announcements/join/
+  - LekCoin Core announcements list https://lekcoincore.org/en/list/announcements/join/
 
-  - digibytecore.org blog post
+  - lekcoincore.org blog post
 
-  - Update title of #digibyte on Freenode IRC
+  - Update title of #lekcoin on Freenode IRC
 
-  - Optionally twitter, reddit /r/DigiByte, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/LekCoin, ... but this will usually sort out itself
 
-  - Notify BlueMatt so that he can start building [the PPAs](https://launchpad.net/~digibyte/+archive/ubuntu/digibyte)
+  - Notify BlueMatt so that he can start building [the PPAs](https://launchpad.net/~lekcoin/+archive/ubuntu/lekcoin)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/digibyte/digibyte/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/lekcoin/lekcoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[digibyte.qt-translation-016x]
-file_filter = src/qt/locale/digibyte_<lang>.ts
-source_file = src/qt/locale/digibyte_en.ts
+[lekcoin.qt-translation-016x]
+file_filter = src/qt/locale/lekcoin_<lang>.ts
+source_file = src/qt/locale/lekcoin_en.ts
 source_lang = en

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The DigiByte Core developers
+// Copyright (c) 2014-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +32,7 @@ NetworkStyle::NetworkStyle(const QString &_appName, const int iconColorHueShift,
     // Grab theme from settings
     QString theme = GUIUtil::getThemeName();
     // load pixmap
-    QPixmap pixmap(":/icons/" + theme + "/digibyte");
+    QPixmap pixmap(":/icons/" + theme + "/lekcoin");
 
     if(iconColorHueShift != 0 && iconColorSaturationReduction != 0)
     {

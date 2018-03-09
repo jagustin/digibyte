@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. digibyte_test
+	$(MAKE) -C .. lekcoin_test
 clean:
-	$(MAKE) -C .. digibyte_test_clean
+	$(MAKE) -C .. lekcoin_test_clean
 check:
-	$(MAKE) -C .. digibyte_test_check
+	$(MAKE) -C .. lekcoin_test_check

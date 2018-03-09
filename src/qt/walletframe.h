@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2016 The DigiByte Core developers
+// Copyright (c) 2011-2016 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include <QFrame>
 #include <QMap>
 
-class DigiByteGUI;
+class LekCoinGUI;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -21,9 +21,9 @@ QT_END_NAMESPACE
 
 /**
  * A container for embedding all wallet-related
- * controls into DigiByteGUI. The purpose of this class is to allow future
+ * controls into LekCoinGUI. The purpose of this class is to allow future
  * refinements of the wallet controls with minimal need for further
- * modifications to DigiByteGUI, thus greatly simplifying merges while
+ * modifications to LekCoinGUI, thus greatly simplifying merges while
  * reducing the risk of breaking top-level stuff.
  */
 class WalletFrame : public QFrame
@@ -31,7 +31,7 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, DigiByteGUI *_gui = 0);
+    explicit WalletFrame(const PlatformStyle *platformStyle, LekCoinGUI *_gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -51,7 +51,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
-    DigiByteGUI *gui;
+    LekCoinGUI *gui;
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 

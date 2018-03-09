@@ -1,30 +1,30 @@
-What is DigiByte?
+What is LekCoin?
 ----------------
 
-DigiByte (DGB) is a rapidly growing four year old decentralized global blockchain with a focus on cyber security, payments & secure communications technologies.
+LekCoin (LEK) is a rapidly growing four year old decentralized global blockchain with a focus on cyber security, payments & secure communications technologies.
 
 For more information, as well as an immediately useable, binary version of
-the DigiByte Core software, see https://digibyte.io
+the LekCoin Core software, see https://lekcoin.io
 
-DigiByte FAQ
+LekCoin FAQ
 -------------
 Launch Date: January 10th, 2014
 
 Blockchain Type: Public, Decentralized, UTXO based, Multi-Algorithm
 
-Ticker Symbol: DGB
+Ticker Symbol: LEK
 
 Genesis Block Hash: "USA Today: 10/Jan/2014, Target: Data stolen from up to 110M customers"
 
-Max Total Supply: 21 Billion DigiBytes in 21 Years (2035)
+Max Total Supply: 21 Billion LekCoins in 21 Years (2035)
 
-Current Supply: 8,107,031,908 DGB (May 2017)
+Current Supply: 8,107,031,908 LEK (May 2017)
 
 Yearly Supply Inflation: 12% in 2017
 
 Block Reward Reduction: 1% Monthly
 
-Current Block Reward 891 DGB
+Current Block Reward 891 LEK
 
 Mining Algorithms: Five (Sha256, Scrypt, Groestl, Skein & Qubit)
 
@@ -40,7 +40,7 @@ Hardforks 4. DigiShield, MultiAlgo, MultiShield, DigiSpeed
 
 Softforks 3. SegWit, CSV, NVersionBips
 
-You can mine DigiByte on one of five separate mining algorithms. Each algo averages out to mine 20% of new blocks. This allows for much greater decentralization than other blockchains. In order for an attacker to hardfork DigiByte the attacker would need to control 93% of the hashrate on 1 algo, and 51% of the other 4 making DigiByte much more secure against PoW attacks than other blockchains.
+You can mine LekCoin on one of five separate mining algorithms. Each algo averages out to mine 20% of new blocks. This allows for much greater decentralization than other blockchains. In order for an attacker to hardfork LekCoin the attacker would need to control 93% of the hashrate on 1 algo, and 51% of the other 4 making LekCoin much more secure against PoW attacks than other blockchains.
 
 DigiShield Hardfork: Block 67,200, Feb. 28th, 2014
 
@@ -50,48 +50,48 @@ MultiShield Hardfork: Block 400k, Dec. 10th 2014
 
 DigiSpeed Hardfork: Block 1,430,000 Dec. 4th 2015
 
-DigiByte vs Bitcoin
+LekCoin vs Bitcoin
 -------------------
 
-Security: 5 DigiByte mining algorithms vs. 1 Bitcoin algorithm.
-DigiByte mining is much more decentralized.
-DigiByte mining algorithms can be changed out in the future to prevent centralization.
+Security: 5 LekCoin mining algorithms vs. 1 Bitcoin algorithm.
+LekCoin mining is much more decentralized.
+LekCoin mining algorithms can be changed out in the future to prevent centralization.
 
-Speed:  DigiByte transactions occur much faster than Bitcoin transactions.
+Speed:  LekCoin transactions occur much faster than Bitcoin transactions.
 1-3 second transaction notifications.
-15 second DigiByte blocks vs. 10 minute Bitcoin blocks.
-DigiBytes are confirmed after 1.5 minutes vs. 1 hour with Bitcoin.
+15 second LekCoin blocks vs. 10 minute Bitcoin blocks.
+LekCoins are confirmed after 1.5 minutes vs. 1 hour with Bitcoin.
 
-Transaction Volume: DigiByte can handle many more transactions per second.
+Transaction Volume: LekCoin can handle many more transactions per second.
 Bitcoin can only handle 3-4 transactions per second.
-DigiByte currently can handle 280+ transactions per second.
+LekCoin currently can handle 280+ transactions per second.
 The 2015 DigiSpeed hardfork introduced changes that double the capacity of the network every two years.
 
-Total Supply: More DigiBytes, lower price, more micro transactions, better price stability.
-21 billion DigiBytes will be created over 21 years.
+Total Supply: More LekCoins, lower price, more micro transactions, better price stability.
+21 billion LekCoins will be created over 21 years.
 Only 21 million Bitcoins will be created over 140 years.
-1:1000 ratio. 1 Bitcoin for every 1000 DigiBytes.
+1:1000 ratio. 1 Bitcoin for every 1000 LekCoins.
 
 Flexibility: Ability to quickly add new features.
-DigiByte can add new features & upgrades much quicker than Bitcoin.
-Future DigiByte upgrades will push transaction limit to several thousand per second.
+LekCoin can add new features & upgrades much quicker than Bitcoin.
+Future LekCoin upgrades will push transaction limit to several thousand per second.
 
-Marketability & Usability: DigiByte is an easy brand to market to consumers.
-DigiBytes are much cheaper to acquire.
+Marketability & Usability: LekCoin is an easy brand to market to consumers.
+LekCoins are much cheaper to acquire.
 
 
 License
 -------
 
-DigiByte Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+LekCoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/digibyte/digibyte/tags) are created
-regularly to indicate new official, stable release versions of DigiByte Core.
+completely stable. [Tags](https://github.com/lekcoin/lekcoin/tags) are created
+regularly to indicate new official, stable release versions of LekCoin Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 

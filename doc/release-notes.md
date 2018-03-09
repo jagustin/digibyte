@@ -1,18 +1,18 @@
 ## (note: this is a temporary file, to be added-to by anybody, and moved to release-notes at release time)
 
-DigiByte Core version 0.16.0 is now available from:
+LekCoin Core version 0.16.0 is now available from:
 
-  <https://digibytecore.org/bin/digibyte-core-0.16.0/>
+  <https://lekcoincore.org/bin/lekcoin-core-0.16.0/>
 
-  <https://digibyte.org/bin/digibyte-core-0.15.x/>
+  <https://lekcoin.org/bin/lekcoin-core-0.15.x/>
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/digibyte/digibyte/issues>
+  <https://github.com/lekcoin/lekcoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://digibytecore.org/en/list/announcements/join/>
+  <https://lekcoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============
@@ -43,7 +43,7 @@ improved, leading to much shorter sync and initial block download times.
 Manual Pruning
 --------------
 
-DigiByte Core has supported automatically pruning the blockchain since 0.11. Pruning
+LekCoin Core has supported automatically pruning the blockchain since 0.11. Pruning
 the blockchain allows for significant storage space savings as the vast majority of
 the downloaded data can be discarded after processing so very little of it remains
 on the disk.
@@ -84,7 +84,7 @@ ZMQ On Windows
 
 Previously the ZeroMQ notification system was unavailable on Windows
 due to various issues with ZMQ. These have been fixed upstream and
-now ZMQ can be used on Windows. Please see [this document](https://github.com/digibyte/digibyte/blob/master/doc/zmq.md) for
+now ZMQ can be used on Windows. Please see [this document](https://github.com/lekcoin/lekcoin/blob/master/doc/zmq.md) for
 help with using ZMQ in general.
 
 Nested RPC Commands in Debug Console
@@ -117,7 +117,7 @@ the same thing as the GUI icon. The command takes one boolean parameter,
 Out-of-sync Modal Info Layer
 ----------------------------
 
-When DigiByte Core is out-of-sync on startup, a semi-transparent information
+When LekCoin Core is out-of-sync on startup, a semi-transparent information
 layer will be shown over top of the normal display. This layer contains
 details about the current sync progress and estimates the amount of time
 remaining to finish syncing. This layer can also be hidden and subsequently
@@ -126,19 +126,19 @@ unhidden by clicking on the progress bar at the bottom of the window.
 Support for JSON-RPC Named Arguments
 ------------------------------------
 
-Commands sent over the JSON-RPC interface and through the `digibyte-cli` binary
+Commands sent over the JSON-RPC interface and through the `lekcoin-cli` binary
 can now use named arguments. This follows the [JSON-RPC specification](http://www.jsonrpc.org/specification)
 for passing parameters by-name with an object.
 
-`digibyte-cli` has been updated to support this by parsing `name=value` arguments
+`lekcoin-cli` has been updated to support this by parsing `name=value` arguments
 when the `-named` option is given.
 
 Some examples:
 
-    src/digibyte-cli -named help command="help"
-    src/digibyte-cli -named getblockhash height=0
-    src/digibyte-cli -named getblock blockhash=000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
-    src/digibyte-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
+    src/lekcoin-cli -named help command="help"
+    src/lekcoin-cli -named getblockhash height=0
+    src/lekcoin-cli -named getblock blockhash=000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+    src/lekcoin-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
 
 The order of arguments doesn't matter in this case. Named arguments are also
 useful to leave out arguments that should stay at their default value. The
@@ -177,7 +177,7 @@ commands such as `prioritisetransaction` so that those changes will not be lost.
 Final Alert
 -----------
 
-The Alert System was [disabled and deprecated](https://digibyte.org/en/alert/2016-11-01-alert-retirement) in DigiByte Core 0.12.1 and removed in 0.13.0. 
+The Alert System was [disabled and deprecated](https://lekcoin.org/en/alert/2016-11-01-alert-retirement) in LekCoin Core 0.12.1 and removed in 0.13.0. 
 The Alert System was retired with a maximum sequence final alert which causes any nodes
 supporting the Alert System to display a static hard-coded "Alert Key Compromised" message which also
 prevents any other alerts from overriding it. This final alert is hard-coded into this release
@@ -229,8 +229,8 @@ Low-level RPC changes
    the mempool or if `txindex` is enabled.
 
  - A new RPC command `getmemoryinfo` has been added which will return information
-   about the memory usage of DigiByte Core. This was added in conjunction with
-   optimizations to memory management. See [Pull #8753](https://github.com/digibyte/digibyte/pull/8753)
+   about the memory usage of LekCoin Core. This was added in conjunction with
+   optimizations to memory management. See [Pull #8753](https://github.com/lekcoin/lekcoin/pull/8753)
    for more information.
 
  - A new RPC command `bumpfee` has been added which allows replacing an
@@ -258,8 +258,8 @@ The `-minrelaytxfee` option continues to exist but is recommended to be left uns
 =======
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over `/Applications/DigiByte-Qt` (on Mac)
-or `digibyted`/`digibyte-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/LekCoin-Qt` (on Mac)
+or `lekcoind`/`lekcoin-qt` (on Linux).
 
 The first time you run a version newer than 0.15.0, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
@@ -280,10 +280,10 @@ wallets that were created with older versions are not affected by this.
 Compatibility
 ==============
 
-DigiByte Core is extensively tested on multiple operating systems using
+LekCoin Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-DigiByte Core should also work on most other Unix-like systems but is not
+LekCoin Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 
@@ -299,7 +299,7 @@ Wallet changes
 
 ### Segwit Wallet
 
-DigiByte Core 0.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
+LekCoin Core 0.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
 
 A new `address_type` parameter has been added to the `getnewaddress` and `addmultisigaddress` RPCs to specify which type of address to generate.
 A `change_type` argument has been added to the `fundrawtransaction` RPC to override the `-changetype` argument for specific transactions.
@@ -336,9 +336,9 @@ use the `replaceable` argument for individual transactions.
 
 ### Wallets directory configuration (`-walletdir`)
 
-DigiByte Core now has more flexibility in where the wallets directory can be
+LekCoin Core now has more flexibility in where the wallets directory can be
 located. Previously wallet database files were stored at the top level of the
-digibyte data directory. The behavior is now:
+lekcoin data directory. The behavior is now:
 
 - For new installations (where the data directory doesn't already exist),
   wallets will now be stored in a new `wallets/` subdirectory inside the data
@@ -356,7 +356,7 @@ becomes unavailable during operation, funds may be lost.
 
 Build: Minimum GCC bumped to 4.8.x
 ------------------------------------
-The minimum version of the GCC compiler required to compile DigiByte Core is now 4.8. No effort will be
+The minimum version of the GCC compiler required to compile LekCoin Core is now 4.8. No effort will be
 made to support older versions of GCC. See discussion in issue #11732 for more information.
 The minimum version for the Clang compiler is still 3.3. Other minimum dependency versions can be found in `doc/dependencies.md` in the repository.
 
@@ -371,7 +371,7 @@ The SHA256 hashing optimizations for architectures supporting SSE4, which lead t
 
 GUI changes
 -----------
-- Uses of "µDGB" in the GUI now also show the more colloquial term "bits", specified in BIP176.
+- Uses of "µLEK" in the GUI now also show the more colloquial term "bits", specified in BIP176.
 - The option to reuse a previous address has now been removed. This was justified by the need to "resend" an invoice, but now that we have the request history, that need should be gone.
 - Support for searching by TXID has been added, rather than just address and label.
 - A "Use available balance" option has been added to the send coins dialog, to add the remaining available wallet balance to a transaction output.
@@ -435,9 +435,9 @@ The `validateaddress` RPC output has been extended with a few new fields, and su
 Other changed command-line options
 ----------------------------------
 - `-debuglogfile=<file>` can be used to specify an alternative debug logging file.
-- digibyte-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
+- lekcoin-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
 - The `-usehd` option has been removed.
-- digibyte-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
+- lekcoin-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
 
 Testing changes
 ----------------
@@ -447,7 +447,7 @@ Testing changes
 Known Issues
 ------------
 
-- Occasionally shutting down the DigiByte Core GUI during the startup and loading phase will cause an assertion error.
+- Occasionally shutting down the LekCoin Core GUI during the startup and loading phase will cause an assertion error.
 
 0.16.0 change log
 ------------------
@@ -482,7 +482,7 @@ Known Issues
 - #11740 `59d3dc8` Implement BIP159 NODE_NETWORK_LIMITED (pruned peers) *signaling only* (jonasschnelli)
 - #11583 `37ffa16` Do not make it trivial for inbound peers to generate log entries (TheBlueMatt)
 - #11363 `ba2f195` Split socket create/connect (theuni)
-- #11917 `bc66765` Add testnet DNS seed:  seed.testnet.digibyte.sprovoost.nl (Sjors)
+- #11917 `bc66765` Add testnet DNS seed:  seed.testnet.lekcoin.sprovoost.nl (Sjors)
 - #11512 `6e89de5` Use GetDesireableServiceFlags in seeds, dnsseeds, fixing static seed adding (TheBlueMatt)
 - #12262 `16bac24` Hardcoded seed update (laanwj)
 - #12270 `9cf6393` Update chainTxData for 0.16 (laanwj)
@@ -514,7 +514,7 @@ Known Issues
 - #11923 `81c89e9` Remove unused fNoncriticalErrors variable from CWalletDB::FindWalletTx (PierreRochard)
 - #11726 `604e08c` Cleanups + nit fixes for walletdir PR (MeshCollider)
 - #11403 `d889c03` Segwit wallet support (sipa)
-- #11970 `b7450cd` Add test coverage for digibyte-cli multiwallet calls (ryanofsky)
+- #11970 `b7450cd` Add test coverage for lekcoin-cli multiwallet calls (ryanofsky)
 - #11904 `66e3af7` Add a lock to the wallet directory (MeshCollider)
 - #12101 `c7978be` Clamp walletpassphrase timeout to 2^30 seconds and check its bounds (achow101)
 - #12210 `17180fa` Deprecate addwitnessaddress (laanwj)
@@ -527,7 +527,7 @@ Known Issues
 ### RPC and other APIs
 - #11008 `3841aaf` Enable disablesafemode by default (gmaxwell)
 - #11050 `7ed57d3` Avoid treating null RPC arguments different from missing arguments (ryanofsky)
-- #10997 `affe927` Add option -stdinrpcpass to digibyte-cli to allow RPC password to be read from standard input (jharvell)
+- #10997 `affe927` Add option -stdinrpcpass to lekcoin-cli to allow RPC password to be read from standard input (jharvell)
 - #11179 `e0e3cbb` Push down safe mode checks (laanwj)
 - #11203 `d745b4c` add wtxid to mempool entry output (sdaftuar)
 - #11099 `bc561b4` Add savemempool RPC (greenaddress)
@@ -587,7 +587,7 @@ Known Issues
 - #11616 `8585bb8` Update ban-state in case of dirty-state during periodic sweep (jonasschnelli)
 - #11605 `f19ca12` Enable RBF by default in QT (Sjors)
 - #12074 `a1136f0` Optimizes boolean expression model && model->haveWatchOnly() (251Labs)
-- #12035 `eeb6d52` Change µDGB to bits (jb55)
+- #12035 `eeb6d52` Change µLEK to bits (jb55)
 - #12092 `fd4ca17` Replaces numbered place marker %2 with %1 (251Labs)
 - #12173 `bbc91b7` Use flexible font size for QRCode image address (jonasschnelli)
 - #12211 `10d10d7` Avoid potential null dereference in ReceiveCoinsDialog constructor (ryanofsky)
@@ -610,7 +610,7 @@ Known Issues
 - #11541 `bb9ab0f` Build: Fix Automake warnings when running autogen.sh (fanquake)
 - #11611 `0e70791` [build] Don't fail when passed --disable-lcov and lcov isn't available (fanquake)
 - #11651 `3c098a8` refactor: Make all #includes relative to project root (laanwj, MeshCollider, ryanofsky)
-- #11621 `1f7695b` [build] Add temp_digibyte_locale_qrc to CLEAN_QT to fix make distcheck (fanquake)
+- #11621 `1f7695b` [build] Add temp_lekcoin_locale_qrc to CLEAN_QT to fix make distcheck (fanquake)
 - #11755 `84fa645` [Docs] Bump minimum required version of GCC to 4.8 (fanquake)
 - #9254 `6d3dc52` [depends] ZeroMQ 4.2.2 (fanquake)
 - #11842 `3c8f0a3` [build] Add missing stuff to clean-local (kallewoof)
@@ -620,7 +620,7 @@ Known Issues
 - #11903 `8f68fd2` [trivial] Add required package dependencies for depends cross compilation (jonasschnelli)
 - #12168 `45cf8a0`  #include sys/fcntl.h to just fcntl.h (without sys/) (jsarenik)
 - #12095 `3fa1ab4` Use BDB_LIBS/CFLAGS and pass --disable-replication (fanquake)
-- #11711 `6378e5c` digibyte_qt.m4: Minor fixes and clean-ups (fanquake)
+- #11711 `6378e5c` lekcoin_qt.m4: Minor fixes and clean-ups (fanquake)
 - #11989 `90d4104` .gitignore: add QT Creator artifacts (Sjors)
 - #11577 `c0ae864` Fix warnings (-Wsign-compare) when building with DEBUG_ADDRMAN (practicalswift)
 
@@ -633,7 +633,7 @@ Known Issues
 - #11260 `52f8877` travis: Assert default datadir isn't created, Run scripted diff only once (MarcoFalke)
 - #11271 `638e6c5` travis: filter out pyenv (theuni)
 - #11285 `3255d63` Add -usehd to excluded args in check-doc.py (MeshCollider)
-- #11297 `16e4184` Make sure ~/.digibyte doesn't exist before build (MeshCollider)
+- #11297 `16e4184` Make sure ~/.lekcoin doesn't exist before build (MeshCollider)
 - #11311 `cce94c5` travis: Revert default datadir check (MarcoFalke)
 - #11300 `f4ed44a` Add a lint check for trailing whitespace (MeshCollider)
 - #11323 `4ce2f3d` mininode: add an optimistic write and disable nagle (theuni)
@@ -777,7 +777,7 @@ Known Issues
 - #10781 `60dd9cc` Python cleanups (practicalswift)
 - #10701 `50fae68` Remove the virtual specifier for functions with the override specifier (practicalswift)
 - #11164 `38a54a5` Fix boost headers included as user instead of system headers (danra)
-- #11143 `3aa60b7` Fix include path for digibyte-config.h (danra)
+- #11143 `3aa60b7` Fix include path for lekcoin-config.h (danra)
 - #8330 `59e1789` Structure Packing Optimizations in C{,Mutable}Transaction (JeremyRubin)
 - #10845 `39ae413` Remove unreachable code (practicalswift)
 - #11238 `6acdb1f` Add assertions before potential null deferences (MeshCollider)
@@ -820,8 +820,8 @@ Known Issues
 
 ### Miscellaneous
 - #11246 `777519b` github-merge: Coalesce git fetches (laanwj)
-- #10871 `c9a4aa8` Handle getinfo in digibyte-cli w/ -getinfo (revival of #8843) (achow101)
-- #11419 `093074b` Utils: Fix launchctl not being able to stop digibyted (OmeGak)
+- #10871 `c9a4aa8` Handle getinfo in lekcoin-cli w/ -getinfo (revival of #8843) (achow101)
+- #11419 `093074b` Utils: Fix launchctl not being able to stop lekcoind (OmeGak)
 - #11394 `6e4e98e` Perform a weaker subtree check in Travis (sipa)
 - #11702 `4122112` [build] Add a script for installing db4 (jamesob)
 - #11794 `dd49862` Prefix leveldb debug logging (laanwj)
@@ -838,7 +838,7 @@ Known Issues
 - #11951 `1fb34e0` Remove dead feeest-file read code for old versions (TheBlueMatt)
 - #11421 `9ccafb1` Merge current secp256k1 subtree (MarcoFalke)
 - #11573 `2631d55` [Util] Update tinyformat.h (fanquake)
-- #10529 `331352f` Improve digibyted systemd service file (Flowdalic)
+- #10529 `331352f` Improve lekcoind systemd service file (Flowdalic)
 - #11620 `70fec9e` [build] .gitignore: add background.tiff (Sjors)
 - #11558 `68e021e` Minimal code changes to allow msvc compilation (sipsorcery)
 - #11284 `10bee0d` Fix invalid memory access in CScript::operator+= (guidovranken, ajtowns)
@@ -1012,4 +1012,4 @@ Thanks to everyone who directly contributed to this release:
 (todo)
 >>>>>>> a93234d596832862fe92c2dd0a0bf7d8febfd5f7
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/digibyte/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/lekcoin/).

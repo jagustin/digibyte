@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The DigiByte Core developers
+# Copyright (c) 2014-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the zapwallettxes functionality.
 
-- start two digibyted nodes
+- start two lekcoind nodes
 - create two transactions on node 0 - one is confirmed and one is unconfirmed.
 - restart node 0 and verify that both the confirmed and the unconfirmed
   transactions are still available.
@@ -14,14 +14,14 @@
   transactions are still available, but that the unconfirmed transaction has
   been zapped.
 """
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
     wait_until,
 )
 
-class ZapWalletTXesTest (DigiByteTestFramework):
+class ZapWalletTXesTest (LekCoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

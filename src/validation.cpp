@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,7 +48,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "DigiByte cannot be compiled without assertions."
+# error "LekCoin cannot be compiled without assertions."
 #endif
 
 #define MICRO 0.000001
@@ -231,7 +231,7 @@ CTxMemPool mempool(&feeEstimator);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "DigiByte Signed Message:\n";
+const std::string strMessageMagic = "LekCoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -937,7 +937,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
         // Remove conflicting transactions from the mempool
         for (const CTxMemPool::txiter it : allConflicting)
         {
-            LogPrint(BCLog::MEMPOOL, "replacing tx %s with %s for %s DGB additional fees, %d delta bytes\n",
+            LogPrint(BCLog::MEMPOOL, "replacing tx %s with %s for %s LEK additional fees, %d delta bytes\n",
                     it->GetTx().GetHash().ToString(),
                     hash.ToString(),
                     FormatMoney(nModifiedFees - nConflictingFees),
@@ -1130,7 +1130,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
     return true;
 }
 
-CAmount GetDGBSubsidy(int nHeight, const Consensus::Params& consensusParams) {
+CAmount GetLEKSubsidy(int nHeight, const Consensus::Params& consensusParams) {
 	// thanks to RealSolid & WDC for helping out with this code
 	CAmount qSubsidy;
     
@@ -1191,10 +1191,10 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 
 	} else {
 		//patch takes effect after 67,200 blocks solved
-		nSubsidy = GetDGBSubsidy(nHeight, consensusParams);
+		nSubsidy = GetLEKSubsidy(nHeight, consensusParams);
 	}
 
-	//make sure the reward is at least 1 DGB
+	//make sure the reward is at least 1 LEK
 	if(nSubsidy < COIN) {
 		nSubsidy = COIN;
 	}
@@ -1730,7 +1730,7 @@ static bool WriteTxIndexDataForBlock(const CBlock& block, CValidationState& stat
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("digibyte-scriptch");
+    RenameThread("lekcoin-scriptch");
     scriptcheckqueue.Thread();
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The DigiByte Core developers
+# Copyright (c) 2014-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +29,7 @@ from .util import (
 from .authproxy import JSONRPCException
 
 
-class DigiByteTestFramework(object):
+class LekCoinTestFramework(object):
 
     def __init__(self):
         self.num_nodes = 4
@@ -104,11 +104,11 @@ class DigiByteTestFramework(object):
 
         parser = optparse.OptionParser(usage="%prog [options]")
         parser.add_option("--nocleanup", dest="nocleanup", default=False, action="store_true",
-                          help="Leave digibyteds and test.* datadir on exit or error")
+                          help="Leave lekcoinds and test.* datadir on exit or error")
         parser.add_option("--noshutdown", dest="noshutdown", default=False, action="store_true",
-                          help="Don't stop digibyteds after the test execution")
+                          help="Don't stop lekcoinds after the test execution")
         parser.add_option("--srcdir", dest="srcdir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__))+"/../../../src"),
-                          help="Source directory containing digibyted/digibyte-cli (default: %default)")
+                          help="Source directory containing lekcoind/lekcoin-cli (default: %default)")
         parser.add_option("--cachedir", dest="cachedir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__))+"/../../cache"),
                           help="Directory for caching pregenerated datadirs")
         parser.add_option("--tmpdir", dest="tmpdir", default=tempfile.mkdtemp(prefix="test"),
@@ -163,7 +163,7 @@ class DigiByteTestFramework(object):
             print("Stopping nodes")
             stop_nodes(self.nodes)
         else:
-            print("Note: digibyteds were not stopped and may still be running")
+            print("Note: lekcoinds were not stopped and may still be running")
 
         if not self.options.nocleanup and not self.options.noshutdown and success:
             print("Cleaning up")
@@ -190,13 +190,13 @@ class DigiByteTestFramework(object):
             sys.exit(1)
 
 
-# Test framework for doing p2p comparison testing, which sets up some digibyted
+# Test framework for doing p2p comparison testing, which sets up some lekcoind
 # binaries:
 # 1 binary: test binary
 # 2 binaries: 1 test binary, 1 ref binary
 # n>2 binaries: 1 test binary, n-1 ref binaries
 
-class ComparisonTestFramework(DigiByteTestFramework):
+class ComparisonTestFramework(LekCoinTestFramework):
 
     def __init__(self):
         super().__init__()
@@ -205,11 +205,11 @@ class ComparisonTestFramework(DigiByteTestFramework):
 
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("DIGIBYTED", "digibyted"),
-                          help="digibyted binary to test")
+                          default=os.getenv("DIGIBYTED", "lekcoind"),
+                          help="lekcoind binary to test")
         parser.add_option("--refbinary", dest="refbinary",
-                          default=os.getenv("DIGIBYTED", "digibyted"),
-                          help="digibyted binary to use for reference nodes (if any)")
+                          default=os.getenv("DIGIBYTED", "lekcoind"),
+                          help="lekcoind binary to use for reference nodes (if any)")
 
     def setup_network(self):
         self.nodes = start_nodes(

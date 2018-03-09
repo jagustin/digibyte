@@ -693,16 +693,16 @@ WalletFrame {
     border:0;
     }
     
-    /* About DigiByte Dialog */
+    /* About LekCoin Dialog */
     QDialog#AboutDialog {
     background-color:#000;
     }
     
-    QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About DigiByte Contents */
+    QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About LekCoin Contents */
     margin-left:10px;
     }
     
-    QDialog#AboutDialog QLabel#label_2 { /* Margin for About DigiByte text */
+    QDialog#AboutDialog QLabel#label_2 { /* Margin for About LekCoin text */
     margin-right:10px;
     }
     

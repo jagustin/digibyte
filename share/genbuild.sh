@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) 2012-2017 The DigiByte Core developers
+# Copyright (c) 2012-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,7 +35,7 @@ if [ "${DIGIBYTE_GENBUILD_NO_GIT}" != "1" -a -e "$(which git 2>/dev/null)" -a "$
 
     # otherwise generate suffix from git, i.e. string like "59887e8-dirty"
     SUFFIX=$(git rev-parse --short HEAD)
-    git diff-index --quiet HEAD -- || SUFFIX="$SUFFIX-DGB"
+    git diff-index --quiet HEAD -- || SUFFIX="$SUFFIX-LEK"
 fi
 
 if [ -n "$DESC" ]; then

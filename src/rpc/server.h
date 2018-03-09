@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -137,7 +137,7 @@ public:
 };
 
 /**
- * DigiByte RPC command dispatcher.
+ * LekCoin RPC command dispatcher.
  */
 class CRPCTable
 {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2017 The DigiByte Core developers
+# Copyright (c) 2015-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,11 +7,11 @@
 # Exercise API with -disablewallet.
 #
 
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import *
 
 
-class DisableWalletTest (DigiByteTestFramework):
+class DisableWalletTest (LekCoinTestFramework):
 
     def __init__(self):
         super().__init__()
@@ -24,7 +24,7 @@ class DisableWalletTest (DigiByteTestFramework):
         self.sync_all()
 
     def run_test (self):
-        # Check regression: https://github.com/digibyte/digibyte/issues/6963#issuecomment-154548880
+        # Check regression: https://github.com/lekcoin/lekcoin/issues/6963#issuecomment-154548880
         x = self.nodes[0].validateaddress('3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy')
         assert(x['isvalid'] == False)
         x = self.nodes[0].validateaddress('mneYUmWYsuk7kySiURxCi3AGxrAqZxLgPZ')

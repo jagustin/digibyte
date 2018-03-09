@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017 The DigiByte Core developers
+# Copyright (c) 2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.mininode import *
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import *
 
 '''
@@ -69,7 +69,7 @@ class CNodeNoVersionBan(CLazyNode):
         super().__init__()
 
     # send a bunch of veracks without sending a message. This should get us disconnected.
-    # NOTE: implementation-specific check here. Remove if digibyted ban behavior changes
+    # NOTE: implementation-specific check here. Remove if lekcoind ban behavior changes
     def on_open(self, conn):
         super().on_open(conn)
         for i in range(banscore):
@@ -99,7 +99,7 @@ class CNodeNoVerackIdle(CLazyNode):
         conn.send_message(msg_ping())
         conn.send_message(msg_getaddr())
 
-class P2PLeakTest(DigiByteTestFramework):
+class P2PLeakTest(LekCoinTestFramework):
     def __init__(self):
         super().__init__()
         self.num_nodes = 1

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017 The DigiByte Core developers
+# Copyright (c) 2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import assert_equal
 
-class ListSinceBlockTest (DigiByteTestFramework):
+class ListSinceBlockTest (LekCoinTestFramework):
 
     def __init__(self):
         super().__init__()

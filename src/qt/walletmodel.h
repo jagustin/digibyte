@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -96,7 +96,7 @@ public:
     }
 };
 
-/** Interface to DigiByte wallet from Qt view code. */
+/** Interface to LekCoin wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT

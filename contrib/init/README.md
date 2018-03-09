@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: digibyted.service
-Upstart: digibyted.conf
-OpenRC:  digibyted.openrc
-         digibyted.openrcconf
-CentOS:  digibyted.init
-OS X:    org.digibyte.digibyted.plist
+SystemD: lekcoind.service
+Upstart: lekcoind.conf
+OpenRC:  lekcoind.openrc
+         lekcoind.openrcconf
+CentOS:  lekcoind.init
+OS X:    org.lekcoin.lekcoind.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

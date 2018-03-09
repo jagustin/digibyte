@@ -1,4 +1,4 @@
-Source: digibyte
+Source: lekcoin
 Section: utils
 Priority: optional
 Maintainer: Matt Corallo <matt@mattcorallo.com>
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://digibytecore.org/
-Vcs-Git: git://github.com/digibyte/digibyte.git
-Vcs-Browser: https://github.com/digibyte/digibyte
+Homepage: https://lekcoincore.org/
+Vcs-Git: git://github.com/lekcoin/lekcoin.git
+Vcs-Browser: https://github.com/lekcoin/lekcoin
 
-Package: digibyted
+Package: lekcoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- DigiByte is a free open source peer-to-peer electronic cash system that
+ LekCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, digibyted, and the CLI tool
- digibyte-cli to interact with the daemon.
+ This package provides the daemon, lekcoind, and the CLI tool
+ lekcoin-cli to interact with the daemon.
 
-Package: digibyte-qt
+Package: lekcoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- DigiByte is a free open source peer-to-peer electronic cash system that
+ LekCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides DigiByte-Qt, a GUI for DigiByte based on Qt.
+ This package provides LekCoin-Qt, a GUI for LekCoin based on Qt.
 
-Package: digibyte-tx
+Package: lekcoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- DigiByte is a free open source peer-to-peer electronic cash system that
+ LekCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides digibyte-tx, a command-line transaction creation
- tool which can be used without a digibyte daemon.  Some means of
+ This package provides lekcoin-tx, a command-line transaction creation
+ tool which can be used without a lekcoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

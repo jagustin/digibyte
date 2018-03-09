@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The DigiByte Core developers
+// Copyright (c) 2014-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #define DIGIBYTE_CRYPTO_COMMON_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/digibyte-config.h>
+#include <config/lekcoin-config.h>
 #endif
 
 #include <stdint.h>

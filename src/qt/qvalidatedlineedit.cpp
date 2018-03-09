@@ -1,10 +1,10 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/qvalidatedlineedit.h>
 
-#include <qt/digibyteaddressvalidator.h>
+#include <qt/lekcoinaddressvalidator.h>
 #include <qt/guiconstants.h>
 
 QValidatedLineEdit::QValidatedLineEdit(QWidget *parent) :

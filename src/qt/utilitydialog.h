@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include <QDialog>
 #include <QObject>
 
-class DigiByteGUI;
+class LekCoinGUI;
 
 namespace Ui {
     class HelpMessageDialog;
@@ -42,7 +42,7 @@ class ShutdownWindow : public QWidget
 
 public:
     explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static QWidget *showShutdownWindow(DigiByteGUI *window);
+    static QWidget *showShutdownWindow(LekCoinGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);

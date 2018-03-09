@@ -1,45 +1,45 @@
 
 Setup
 ---------------------
-DigiByte Core is the original DigiByte client and it builds the backbone of the network. However, it downloads and stores the entire history of DigiByte transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
-DigiByte Core
+LekCoin Core is the original LekCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of LekCoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+LekCoin Core
 =============
 
 Setup
 ---------------------
-DigiByte Core is the original DigiByte client and it builds the backbone of the network. It downloads and, by default, stores the entire history of DigiByte transactions (which is currently more than 100 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+LekCoin Core is the original LekCoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of LekCoin transactions (which is currently more than 100 GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download DigiByte Core, visit [digibytecore.org](https://digibytecore.org/en/releases/).
+To download LekCoin Core, visit [lekcoincore.org](https://lekcoincore.org/en/releases/).
 
 Running
 ---------------------
-The following are some helpful notes on how to run DigiByte on your native platform.
+The following are some helpful notes on how to run LekCoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/digibyte-qt` (GUI) or
-- `bin/digibyted` (headless)
+- `bin/lekcoin-qt` (GUI) or
+- `bin/lekcoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run digibyte-qt.exe.
+Unpack the files into a directory, and then run lekcoin-qt.exe.
 
 ### OS X
 
-Drag DigiByte-Core to your applications folder, and then run DigiByte-Core.
+Drag LekCoin-Core to your applications folder, and then run LekCoin-Core.
 
 ### Need Help?
 
-* See the documentation at the [DigiByte Wiki](https://en.digibyte.it/wiki/Main_Page)
+* See the documentation at the [LekCoin Wiki](https://en.lekcoin.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#digibyte](http://webchat.freenode.net?channels=digibyte) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=digibyte).
-* Ask for help on the [DigiByteTalk](https://digibytetalk.org/) forums, in the [Technical Support board](https://digibytetalk.org/index.php?board=4.0).
+* Ask for help on [#lekcoin](http://webchat.freenode.net?channels=lekcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=lekcoin).
+* Ask for help on the [LekCoinTalk](https://lekcointalk.org/) forums, in the [Technical Support board](https://lekcointalk.org/index.php?board=4.0).
 
 Building
 ---------------------
-The following are developer notes on how to build DigiByte on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build LekCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [OS X Build Notes](build-osx.md)
@@ -50,12 +50,12 @@ The following are developer notes on how to build DigiByte on your native platfo
 
 Development
 ---------------------
-The DigiByte repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The LekCoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/digibyte/doxygen/)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/lekcoin/doxygen/)
 - [Translation Process](translation_process.md)
 - [Translation Strings Policy](translation_strings_policy.md)
 - [Travis CI](travis-ci.md)
@@ -66,9 +66,9 @@ The DigiByte repo's [root README](/README.md) contains relevant information on t
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [DigiByteTalk](https://digibytetalk.org/) forums, in the [Development & Technical Discussion board](https://digibytetalk.org/index.php?board=6.0).
-* Discuss project-specific development on #digibyte-core-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=digibyte-core-dev).
-* Discuss general DigiByte development on #digibyte-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=digibyte-dev).
+* Discuss on the [LekCoinTalk](https://lekcointalk.org/) forums, in the [Development & Technical Discussion board](https://lekcointalk.org/index.php?board=6.0).
+* Discuss project-specific development on #lekcoin-core-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=lekcoin-core-dev).
+* Discuss general LekCoin development on #lekcoin-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=lekcoin-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

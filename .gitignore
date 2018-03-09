@@ -1,13 +1,13 @@
 *.tar.gz
 
 *.exe
-src/digibyte
-src/digibyted
-src/digibyte-cli
-src/digibyte-tx
-src/test/test_digibyte
-src/test/test_digibyte_fuzzy
-src/qt/test/test_digibyte-qt
+src/lekcoin
+src/lekcoind
+src/lekcoin-cli
+src/lekcoin-tx
+src/test/test_lekcoin
+src/test/test_lekcoin_fuzzy
+src/qt/test/test_lekcoin-qt
 
 # autoreconf
 Makefile.in
@@ -30,8 +30,8 @@ config.log
 config.status
 configure
 libtool
-src/config/digibyte-config.h
-src/config/digibyte-config.h.in
+src/config/lekcoin-config.h
+src/config/lekcoin-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -44,11 +44,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/digibyte-qt.config
-src/qt/digibyte-qt.creator
-src/qt/digibyte-qt.creator.user
-src/qt/digibyte-qt.files
-src/qt/digibyte-qt.includes
+src/qt/lekcoin-qt.config
+src/qt/lekcoin-qt.creator
+src/qt/lekcoin-qt.creator.user
+src/qt/lekcoin-qt.files
+src/qt/lekcoin-qt.includes
 
 .deps
 .dirstamp
@@ -80,13 +80,13 @@ src/qt/digibyte-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-digibyte-qt
-DigiByte-Qt.app
+lekcoin-qt
+LekCoin-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-digibyte-qt_test
+lekcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -99,7 +99,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_digibyte.coverage/
+test_lekcoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -114,5 +114,5 @@ test/cache/*
 
 /doc/doxygen/
 
-libdigibyteconsensus.pc
+liblekcoinconsensus.pc
 contrib/devtools/split-debug.sh

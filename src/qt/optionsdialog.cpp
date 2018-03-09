@@ -1,15 +1,15 @@
-// Copyright (c) 2011-2017 The DigiByte Core developers
+// Copyright (c) 2011-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/digibyte-config.h>
+#include <config/lekcoin-config.h>
 #endif
 
 #include <qt/optionsdialog.h>
 #include <qt/forms/ui_optionsdialog.h>
 
-#include <qt/digibyteunits.h>
+#include <qt/lekcoinunits.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
 
@@ -75,18 +75,18 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 
     /* Theme selector */
 
-    ui->theme->addItem(QString("DGB-Black"), QVariant("black"));
-    ui->theme->addItem(QString("DGB-Blue"), QVariant("blue"));
-    ui->theme->addItem(QString("DGB-White"), QVariant("white"));
+    ui->theme->addItem(QString("LEK-Black"), QVariant("black"));
+    ui->theme->addItem(QString("LEK-Blue"), QVariant("blue"));
+    ui->theme->addItem(QString("LEK-White"), QVariant("white"));
  
 
 
     QDir translations(":translations");
 
-    ui->digibyteAtStartup->setToolTip(ui->digibyteAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
-    ui->digibyteAtStartup->setText(ui->digibyteAtStartup->text().arg(tr(PACKAGE_NAME)));
+    ui->lekcoinAtStartup->setToolTip(ui->lekcoinAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->lekcoinAtStartup->setText(ui->lekcoinAtStartup->text().arg(tr(PACKAGE_NAME)));
 
-    ui->openDigiByteConfButton->setToolTip(ui->openDigiByteConfButton->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->openLekCoinConfButton->setToolTip(ui->openLekCoinConfButton->toolTip().arg(tr(PACKAGE_NAME)));
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(tr(PACKAGE_NAME)));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -120,7 +120,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
 #endif
 
-    ui->unit->setModel(new DigiByteUnits(this));
+    ui->unit->setModel(new LekCoinUnits(this));
 
     /* Widget-to-option mapper */
     mapper = new QDataWidgetMapper(this);
@@ -183,7 +183,7 @@ void OptionsDialog::setModel(OptionsModel *_model)
 void OptionsDialog::setMapper()
 {
     /* Main */
-    mapper->addMapping(ui->digibyteAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->lekcoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
 
@@ -240,7 +240,7 @@ void OptionsDialog::on_resetButton_clicked()
     }
 }
 
-void OptionsDialog::on_openDigiByteConfButton_clicked()
+void OptionsDialog::on_openLekCoinConfButton_clicked()
 {
     /* explain the purpose of the config file */
     QMessageBox::information(this, tr("Configuration options"),
@@ -248,7 +248,7 @@ void OptionsDialog::on_openDigiByteConfButton_clicked()
            "Additionally, any command-line options will override this configuration file."));
 
     /* show an error if there was some problem opening the file */
-    if (!GUIUtil::openDigiByteConf())
+    if (!GUIUtil::openLekCoinConf())
         QMessageBox::critical(this, tr("Error"), tr("The configuration file could not be opened."));
 }
 

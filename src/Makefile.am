@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2017 The DigiByte Core developers
+# Copyright (c) 2013-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,23 +23,23 @@ DIGIBYTE_INCLUDES=-I$(builddir) $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPF
 DIGIBYTE_INCLUDES += -I$(srcdir)/secp256k1/include
 DIGIBYTE_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBDIGIBYTE_SERVER=libdigibyte_server.a
-LIBDIGIBYTE_COMMON=libdigibyte_common.a
-LIBDIGIBYTE_CONSENSUS=libdigibyte_consensus.a
-LIBDIGIBYTE_CLI=libdigibyte_cli.a
-LIBDIGIBYTE_UTIL=libdigibyte_util.a
-LIBDIGIBYTE_CRYPTO=crypto/libdigibyte_crypto.a
-LIBDIGIBYTEQT=qt/libdigibyteqt.a
+LIBDIGIBYTE_SERVER=liblekcoin_server.a
+LIBDIGIBYTE_COMMON=liblekcoin_common.a
+LIBDIGIBYTE_CONSENSUS=liblekcoin_consensus.a
+LIBDIGIBYTE_CLI=liblekcoin_cli.a
+LIBDIGIBYTE_UTIL=liblekcoin_util.a
+LIBDIGIBYTE_CRYPTO=crypto/liblekcoin_crypto.a
+LIBDIGIBYTEQT=qt/liblekcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBDIGIBYTE_ZMQ=libdigibyte_zmq.a
+LIBDIGIBYTE_ZMQ=liblekcoin_zmq.a
 endif
 if BUILD_DIGIBYTE_LIBS
-LIBDIGIBYTECONSENSUS=libdigibyteconsensus.la
+LIBDIGIBYTECONSENSUS=liblekcoinconsensus.la
 endif
 if ENABLE_WALLET
-LIBDIGIBYTE_WALLET=libdigibyte_wallet.a
+LIBDIGIBYTE_WALLET=liblekcoin_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -65,15 +65,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_DIGIBYTED
-  bin_PROGRAMS += digibyted
+  bin_PROGRAMS += lekcoind
 endif
 
 if BUILD_DIGIBYTE_UTILS
-  bin_PROGRAMS += digibyte-cli digibyte-tx
+  bin_PROGRAMS += lekcoin-cli lekcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# digibyte core #
+# lekcoin core #
 DIGIBYTE_CORE_H = \
   addrdb.h \
   addrman.h \
@@ -181,12 +181,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libdigibyte_util_a-clientversion.$(OBJEXT): obj/build.h
+liblekcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between digibyted and digibyte-qt
-libdigibyte_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libdigibyte_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_server_a_SOURCES = \
+# server: shared between lekcoind and lekcoin-qt
+liblekcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+liblekcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   bloom.cpp \
@@ -228,20 +228,20 @@ libdigibyte_server_a_SOURCES = \
   $(DIGIBYTE_CORE_H)
 
 if ENABLE_ZMQ
-libdigibyte_zmq_a_CPPFLAGS = $(DIGIBYTE_INCLUDES) $(ZMQ_CFLAGS)
-libdigibyte_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_zmq_a_SOURCES = \
+liblekcoin_zmq_a_CPPFLAGS = $(DIGIBYTE_INCLUDES) $(ZMQ_CFLAGS)
+liblekcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between digibyted and digibyte-qt, but only linked
+# wallet: shared between lekcoind and lekcoin-qt, but only linked
 # when wallet enabled
-libdigibyte_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_wallet_a_SOURCES = \
+liblekcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+liblekcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/feebumper.cpp \
@@ -255,9 +255,9 @@ libdigibyte_wallet_a_SOURCES = \
   $(DIGIBYTE_CORE_H)
 
 # crypto primitives library
-crypto_libdigibyte_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libdigibyte_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libdigibyte_crypto_a_SOURCES = \
+crypto_liblekcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_liblekcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_liblekcoin_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes_helper.c \
   crypto/aes.h \
@@ -279,13 +279,13 @@ crypto_libdigibyte_crypto_a_SOURCES = \
 
 
 if USE_ASM
-crypto_libdigibyte_crypto_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_liblekcoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libdigibyte_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_consensus_a_SOURCES = \
+liblekcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+liblekcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -331,7 +331,7 @@ libdigibyte_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/digibyteconsensus.cpp \
+  script/lekcoinconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -346,10 +346,10 @@ libdigibyte_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between digibyted, and digibyte-qt and non-server tools
-libdigibyte_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_common_a_SOURCES = \
+# common: shared between lekcoind, and lekcoin-qt and non-server tools
+liblekcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+liblekcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_common_a_SOURCES = \
   base58.cpp \
   bech32.cpp \
   chainparams.cpp \
@@ -372,9 +372,9 @@ libdigibyte_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libdigibyte_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_util_a_SOURCES = \
+liblekcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+liblekcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -395,30 +395,30 @@ libdigibyte_util_a_SOURCES = \
   $(DIGIBYTE_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libdigibyte_util_a_SOURCES += compat/glibc_compat.cpp
+liblekcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between digibyte-cli and digibyte-qt
-libdigibyte_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-libdigibyte_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libdigibyte_cli_a_SOURCES = \
+# cli: shared between lekcoin-cli and lekcoin-qt
+liblekcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+liblekcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoin_cli_a_SOURCES = \
   rpc/client.cpp \
   $(DIGIBYTE_CORE_H)
 
-nodist_libdigibyte_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_liblekcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# digibyted binary #
-digibyted_SOURCES = digibyted.cpp
-digibyted_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-digibyted_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-digibyted_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# lekcoind binary #
+lekcoind_SOURCES = lekcoind.cpp
+lekcoind_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+lekcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+lekcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-digibyted_SOURCES += digibyted-res.rc
+lekcoind_SOURCES += lekcoind-res.rc
 endif
 
-digibyted_LDADD = \
+lekcoind_LDADD = \
   $(LIBDIGIBYTE_SERVER) \
   $(LIBDIGIBYTE_COMMON) \
   $(LIBUNIVALUE) \
@@ -432,38 +432,38 @@ digibyted_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-digibyted_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+lekcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# digibyte-cli binary #
-digibyte_cli_SOURCES = digibyte-cli.cpp
-digibyte_cli_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(EVENT_CFLAGS)
-digibyte_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-digibyte_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# lekcoin-cli binary #
+lekcoin_cli_SOURCES = lekcoin-cli.cpp
+lekcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES) $(EVENT_CFLAGS)
+lekcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+lekcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-digibyte_cli_SOURCES += digibyte-cli-res.rc
+lekcoin_cli_SOURCES += lekcoin-cli-res.rc
 endif
 
-digibyte_cli_LDADD = \
+lekcoin_cli_LDADD = \
   $(LIBDIGIBYTE_CLI) \
   $(LIBUNIVALUE) \
   $(LIBDIGIBYTE_UTIL) \
   $(LIBDIGIBYTE_CRYPTO)
 
-digibyte_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+lekcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# digibyte-tx binary #
-digibyte_tx_SOURCES = digibyte-tx.cpp
-digibyte_tx_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
-digibyte_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-digibyte_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# lekcoin-tx binary #
+lekcoin_tx_SOURCES = lekcoin-tx.cpp
+lekcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(DIGIBYTE_INCLUDES)
+lekcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+lekcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-digibyte_tx_SOURCES += digibyte-tx-res.rc
+lekcoin_tx_SOURCES += lekcoin-tx-res.rc
 endif
 
-digibyte_tx_LDADD = \
+lekcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBDIGIBYTE_COMMON) \
   $(LIBDIGIBYTE_UTIL) \
@@ -471,22 +471,22 @@ digibyte_tx_LDADD = \
   $(LIBDIGIBYTE_CRYPTO) \
   $(LIBSECP256K1)
 
-digibyte_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+lekcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# digibyteconsensus library #
+# lekcoinconsensus library #
 if BUILD_DIGIBYTE_LIBS
-include_HEADERS = script/digibyteconsensus.h
-libdigibyteconsensus_la_SOURCES = $(crypto_libdigibyte_crypto_a_SOURCES) $(libdigibyte_consensus_a_SOURCES)
+include_HEADERS = script/lekcoinconsensus.h
+liblekcoinconsensus_la_SOURCES = $(crypto_liblekcoin_crypto_a_SOURCES) $(liblekcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libdigibyteconsensus_la_SOURCES += compat/glibc_compat.cpp
+  liblekcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libdigibyteconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libdigibyteconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS) $(CRYPTO_LIBS)
-libdigibyteconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_DIGIBYTE_INTERNAL $(SSL_CFLAGS)
-libdigibyteconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+liblekcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+liblekcoinconsensus_la_LIBADD = $(LIBSECP256K1) $(BOOST_LIBS) $(CRYPTO_LIBS)
+liblekcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_DIGIBYTE_INTERNAL $(SSL_CFLAGS)
+liblekcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -516,12 +516,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/digibyte-config.h: config/stamp-h1
+config/lekcoin-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/digibyte-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/lekcoin-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/digibyte-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/digibyte-config.h.in
+$(top_srcdir)/$(subdir)/config/lekcoin-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/lekcoin-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

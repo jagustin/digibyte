@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 The DigiByte Core developers
+# Copyright (c) 2014-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import *
 
 
-class ZapWalletTXesTest (DigiByteTestFramework):
+class ZapWalletTXesTest (LekCoinTestFramework):
 
     def __init__(self):
         super().__init__()
@@ -52,18 +52,18 @@ class ZapWalletTXesTest (DigiByteTestFramework):
         tx3 = self.nodes[0].gettransaction(txid3)
         assert_equal(tx3['txid'], txid3) #tx3 must be available (unconfirmed)
         
-        #restart digibyted
+        #restart lekcoind
         self.nodes[0].stop()
-        digibyted_processes[0].wait()
+        lekcoind_processes[0].wait()
         self.nodes[0] = start_node(0,self.options.tmpdir)
         
         tx3 = self.nodes[0].gettransaction(txid3)
         assert_equal(tx3['txid'], txid3) #tx must be available (unconfirmed)
         
         self.nodes[0].stop()
-        digibyted_processes[0].wait()
+        lekcoind_processes[0].wait()
         
-        #restart digibyted with zapwallettxes
+        #restart lekcoind with zapwallettxes
         self.nodes[0] = start_node(0,self.options.tmpdir, ["-zapwallettxes=1"])
         
         assert_raises(JSONRPCException, self.nodes[0].gettransaction, [txid3])

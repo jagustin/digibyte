@@ -1,9 +1,9 @@
 .PHONY: FORCE
 all: FORCE
-	$(MAKE) -C .. digibyte_qt test_digibyte_qt
+	$(MAKE) -C .. lekcoin_qt test_lekcoin_qt
 clean: FORCE
-	$(MAKE) -C .. digibyte_qt_clean test_digibyte_qt_clean
+	$(MAKE) -C .. lekcoin_qt_clean test_lekcoin_qt_clean
 check: FORCE
-	$(MAKE) -C .. test_digibyte_qt_check
-digibyte-qt digibyte-qt.exe: FORCE
-	 $(MAKE) -C .. digibyte_qt
+	$(MAKE) -C .. test_lekcoin_qt_check
+lekcoin-qt lekcoin-qt.exe: FORCE
+	 $(MAKE) -C .. lekcoin_qt

@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -75,7 +75,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        //consensus.nSubsidyHalvingInterval = 210000; - DGB
+        //consensus.nSubsidyHalvingInterval = 210000; - LEK
          consensus.BIP16Height = 0 ;
          consensus.BIP34Height = 4394880;
          consensus.BIP34Hash = uint256S("0xadd8ca420f557f62377ec2be6e6f47b96cf2e68160d58aeb7b73433de834cca0");
@@ -86,9 +86,9 @@ public:
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60 / 4;
 
-        /** Current DigiByte 2017 Difficulty Adjustment Code & Block Target. See explanation here: 
-        https://github.com/digibyte/digibyte-old/pull/36 
-        https://github.com/digibyte/digibyte-old/pull/15
+        /** Current LekCoin 2017 Difficulty Adjustment Code & Block Target. See explanation here: 
+        https://github.com/lekcoin/lekcoin-old/pull/36 
+        https://github.com/lekcoin/lekcoin-old/pull/15
 
         Difficulty is updated for every algorithm on every block, not just the algorithm that was solved. 
         In particular, the difficulty of one algorithm may decrease when a different algorithm is solved. 
@@ -108,9 +108,9 @@ public:
         consensus.nInterval = consensus.nTargetTimespan / consensus.nTargetSpacing;
         consensus.nDiffChangeTarget = 67200; // DigiShield Hard Fork Block BIP34Height 67,200
 
-        // Old 1% monthly DGB Reward before 15 secon block change
+        // Old 1% monthly LEK Reward before 15 secon block change
         consensus.patchBlockRewardDuration = 10080; //10080; - No longer used
-        //4 blocks per min, x60 minutes x 24hours x 14 days = 80,160 blocks for 0.5% reduction in DGB reward supply - No longer used
+        //4 blocks per min, x60 minutes x 24hours x 14 days = 80,160 blocks for 0.5% reduction in LEK reward supply - No longer used
         consensus.patchBlockRewardDuration2 = 80160; //80160;
         consensus.nTargetTimespanRe = 1*60; // 60 Seconds
         consensus.nTargetSpacingRe = 1*60; // 60 seconds
@@ -140,7 +140,7 @@ public:
         consensus.nLocalDifficultyAdjustment = 4; //difficulty adjustment per algo
 
 
-        // DigiByte Hard Fork Block Heights
+        // LekCoin Hard Fork Block Heights
         consensus.multiAlgoDiffChangeTarget = 145000; // Block 145,000 MultiAlgo Hard Fork
         consensus.alwaysUpdateDiffChangeTarget = 400000; // Block 400,000 MultiShield Hard Fork
         consensus.workComputationChangeTarget = 1430000; // Block 1,430,000 DigiSpeed Hard Fork
@@ -205,11 +205,11 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x72ddd9496b004221ed0557358846d9248ecd4c440ebd28ed901efc18757d0fad"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.emplace_back("seed1.digibyte.io");
-        vSeeds.emplace_back("seed2.digibyte.io");
-        vSeeds.emplace_back("seed3.digibyte.io");
-        vSeeds.emplace_back("seed.digibyte.io");
-        vSeeds.emplace_back("seed.digibyteprojects.com");
+        vSeeds.emplace_back("seed1.lekcoin.io");
+        vSeeds.emplace_back("seed2.lekcoin.io");
+        vSeeds.emplace_back("seed3.lekcoin.io");
+        vSeeds.emplace_back("seed.lekcoin.io");
+        vSeeds.emplace_back("seed.lekcoinprojects.com");
         vSeeds.emplace_back("digihash.co");
         vSeeds.emplace_back("digiexplorer.info");
 
@@ -275,9 +275,9 @@ public:
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60 / 4;
 
-        /** Current DigiByte 2017 Difficulty Adjustment Code & Block Target. See explanation here: 
-        https://github.com/digibyte/digibyte-old/pull/36 
-        https://github.com/digibyte/digibyte-old/pull/15
+        /** Current LekCoin 2017 Difficulty Adjustment Code & Block Target. See explanation here: 
+        https://github.com/lekcoin/lekcoin-old/pull/36 
+        https://github.com/lekcoin/lekcoin-old/pull/15
 
         Difficulty is updated for every algorithm on every block, not just the algorithm that was solved. 
         In particular, the difficulty of one algorithm may decrease when a different algorithm is solved. 
@@ -297,9 +297,9 @@ public:
         consensus.nInterval = consensus.nTargetTimespan / consensus.nTargetSpacing;
         consensus.nDiffChangeTarget = 67200; // DigiShield Hard Fork Block BIP34Height 67,200
 
-        // Old 1% monthly DGB Reward before 15 secon block change
+        // Old 1% monthly LEK Reward before 15 secon block change
         consensus.patchBlockRewardDuration = 10080; //10080; - No longer used
-        //4 blocks per min, x60 minutes x 24hours x 14 days = 80,160 blocks for 0.5% reduction in DGB reward supply - No longer used
+        //4 blocks per min, x60 minutes x 24hours x 14 days = 80,160 blocks for 0.5% reduction in LEK reward supply - No longer used
         consensus.patchBlockRewardDuration2 = 80160; //80160;
         consensus.nTargetTimespanRe = 1*60; // 60 Seconds
         consensus.nTargetSpacingRe = 1*60; // 60 seconds
@@ -329,7 +329,7 @@ public:
         consensus.nLocalDifficultyAdjustment = 4; //difficulty adjustment per algo
 
 
-        // DigiByte Hard Fork Block Heights
+        // LekCoin Hard Fork Block Heights
         consensus.multiAlgoDiffChangeTarget = 145000; // Block 145,000 MultiAlgo Hard Fork
         consensus.alwaysUpdateDiffChangeTarget = 400000; // Block 400,000 MultiShield Hard Fork
         consensus.workComputationChangeTarget = 1430000; // Block 1,430,000 DigiSpeed Hard Fork
@@ -379,7 +379,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.digibyteprojects.com");
+        vSeeds.emplace_back("testnet-seed.lekcoinprojects.com");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,126);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,140);

@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The DigiByte Core developers
+// Copyright (c) 2009-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -60,7 +60,7 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
 		return pindexLast->nBits;
 	}
 
-	// DigiByte: This fixes an issue where a 51% attack can change difficulty at will.
+	// LekCoin: This fixes an issue where a 51% attack can change difficulty at will.
 	// Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
 	blockstogoback = retargetInterval-1;
 	if ((pindexLast->nHeight+1) != retargetInterval)

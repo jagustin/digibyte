@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2015-2017 The DigiByte Core developers
+# Copyright (c) 2015-2017 The LekCoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.mininode import *
-from test_framework.test_framework import DigiByteTestFramework
+from test_framework.test_framework import LekCoinTestFramework
 from test_framework.util import *
 import time
 from test_framework.blocktools import create_block, create_coinbase
@@ -105,11 +105,11 @@ class TestNode(NodeConnCB):
         return received_pong
 
 
-class AcceptBlockTest(DigiByteTestFramework):
+class AcceptBlockTest(LekCoinTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("DIGIBYTED", "digibyted"),
-                          help="digibyted binary to test")
+                          default=os.getenv("DIGIBYTED", "lekcoind"),
+                          help="lekcoind binary to test")
 
     def __init__(self):
         super().__init__()

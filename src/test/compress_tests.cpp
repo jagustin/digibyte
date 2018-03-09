@@ -1,10 +1,10 @@
-// Copyright (c) 2012-2017 The DigiByte Core developers
+// Copyright (c) 2012-2017 The LekCoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <compressor.h>
 #include <util.h>
-#include <test/test_digibyte.h>
+#include <test/test_lekcoin.h>
 
 #include <stdint.h>
 
@@ -17,10 +17,10 @@
 #define NUM_MULTIPLES_CENT 10000
 
 // amounts 1 .. 10000
-#define NUM_MULTIPLES_1DGB 10000
+#define NUM_MULTIPLES_1LEK 10000
 
 // amounts 50 .. 21000000
-#define NUM_MULTIPLES_50DGB 420000
+#define NUM_MULTIPLES_50LEK 420000
 
 BOOST_FIXTURE_TEST_SUITE(compress_tests, BasicTestingSetup)
 
@@ -52,10 +52,10 @@ BOOST_AUTO_TEST_CASE(compress_amounts)
     for (uint64_t i = 1; i <= NUM_MULTIPLES_CENT; i++)
         BOOST_CHECK(TestEncode(i * CENT));
 
-    for (uint64_t i = 1; i <= NUM_MULTIPLES_1DGB; i++)
+    for (uint64_t i = 1; i <= NUM_MULTIPLES_1LEK; i++)
         BOOST_CHECK(TestEncode(i * COIN));
 
-    for (uint64_t i = 1; i <= NUM_MULTIPLES_50DGB; i++)
+    for (uint64_t i = 1; i <= NUM_MULTIPLES_50LEK; i++)
         BOOST_CHECK(TestEncode(i * 50 * COIN));
 
     for (uint64_t i = 0; i < 100000; i++)
