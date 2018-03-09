@@ -200,9 +200,11 @@ public:
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1520570438, 40207, 0x1e0ffff0, 1, 8000);
+	 //printf("    * GENESIS : %s\n", genesis.GetHash().ToString().c_str());
+        //printf("    * MERKLE ROOT : %s\n", genesis.hashMerkleRoot.ToString().c_str());
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x485a1d8372dd43cfd4f9562d50102e84164cc37818f13bd11576786e7abce24c"));
-        assert(genesis.hashMerkleRoot == uint256S("0xdc3d31050958623aaaacebe5c70d8a1355e7c5b6b610327d0dffa141f889d86c"));
+        assert(consensus.hashGenesisBlock == uint256S("0xcac1b27405085460f54c3133a69ae98acd6c2595914b8dea3905850fe1907782"));
+        assert(genesis.hashMerkleRoot == uint256S("0x70b463c4593ff8880eff5d1595a5f37443d4a7da6f530ea08aa32df03c420f48"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.emplace_back("seed1.lekcoin.io");
@@ -232,7 +234,7 @@ public:
 
         checkpointData = (CCheckpointData) {
          {
-            {     0, uint256S("0x485a1d8372dd43cfd4f9562d50102e84164cc37818f13bd11576786e7abce24c")},
+            {     0, uint256S("0xcac1b27405085460f54c3133a69ae98acd6c2595914b8dea3905850fe1907782")},
          }
         };
 
