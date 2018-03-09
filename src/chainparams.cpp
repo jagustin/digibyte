@@ -192,10 +192,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xc3;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[0] = 0x4c; //L
+        pchMessageStart[1] = 0x45; //E
+        pchMessageStart[2] = 0x4b; //K
+        pchMessageStart[3] = 0x53; //S
         nDefaultPort = 12024;
         nPruneAfterHeight = 100000;
 
